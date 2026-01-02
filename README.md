@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏗️ E-commerce Arquitectura Betancourt – Frontend
 
-## Getting Started
+Frontend del proyecto **E-commerce de Arquitectura Betancourt**, una plataforma de comercio electrónico orientada a la venta de productos de construcción y la contratación de servicios arquitectónicos públicos y personalizados.
 
-First, run the development server:
+Este repositorio contiene exclusivamente la **capa Frontend**, desarrollada con tecnologías modernas y una arquitectura escalable, pensada para proyectos reales de producción.
+
+---
+
+## 📌 Descripción del Proyecto
+
+El frontend es responsable de la **experiencia de usuario**, la **navegación**, la **interacción con los diferentes roles del sistema** (cliente, administrador y diseñador) y la **comunicación con el backend mediante APIs**.
+
+La aplicación está diseñada para:
+
+- Ofrecer una navegación fluida y rápida
+- Soportar múltiples módulos y roles
+- Escalar sin comprometer la mantenibilidad del código
+
+---
+
+## 🧑‍💻 Tecnologías Utilizadas
+
+- **React**: Construcción de interfaces dinámicas y reutilizables
+- **Next.js (App Router)**: Enrutamiento, layouts anidados, SSR y SSG
+- **TypeScript**: Tipado estático para mayor robustez y calidad del código
+- **Tailwind CSS**: Diseño responsivo, moderno y optimizado
+- **React Query**: Manejo de estado asíncrono, cacheo y sincronización de datos
+
+---
+
+## 🗂️ Estructura del Proyecto
+
+El proyecto sigue una arquitectura **feature-based**, combinada con el **App Router de Next.js**, separando claramente responsabilidades.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/                # Rutas y layouts (Next.js App Router)
+├── features/           # Funcionalidades agrupadas por dominio
+├── entities/           # Modelos de dominio (users, items)
+├── shared/             # Componentes, hooks y utilidades reutilizables
+├── providers/          # Proveedores globales (React Query)
+├── middleware.ts       # Middleware de protección y control de acceso
+├── globals.css         # Estilos globales
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧭 Arquitectura de Rutas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### app/
 
-## Learn More
+La carpeta `app/` define las rutas principales del sistema utilizando **layouts anidados**.
 
-To learn more about Next.js, take a look at the following resources:
+### (client)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Módulo público del e-commerce:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Página principal
+- Catálogo de productos
+- Carrito de compras
+- Checkout
+- Autenticación
 
-## Deploy on Vercel
+### admin
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Panel administrativo del sistema:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Gestión de usuarios
+- Gestión de pedidos
+- Facturación
+
+### designer
+
+Módulo para arquitectos y diseñadores:
+
+- Gestión de proyectos
+- Tareas
+- Diseños personalizados
+
+---
+
+## 🧩 Arquitectura por Features
+
+La carpeta `features/` organiza el código por **dominios de negocio**, permitiendo alta cohesión y bajo acoplamiento.
+
+Cada feature incluye:
+
+- `components/` → Componentes UI específicos del dominio
+- `hooks/` → Hooks personalizados
+- `services/` → Lógica de consumo de APIs
+- `libs/` → Lógica auxiliar
+- `utils/` → Funciones utilitarias
+
+---
+
+## 🧠 Entities
+
+El directorio `entities/` contiene los modelos centrales del dominio:
+
+- `users` → Usuarios y roles
+- `items` → Productos y servicios
+
+Esto permite separar la lógica del dominio de la capa de presentación.
+
+---
+
+## ♻️ Shared
+
+El directorio `shared/` centraliza recursos reutilizables:
+
+- Componentes UI genéricos (header, navegación, UI)
+- Hooks compartidos
+- Tipos globales
+- Utilidades comunes
+
+---
+
+## 🔄 Manejo de Estado y Datos
+
+Se utiliza **React Query** para:
+
+- Consumo eficiente de APIs
+- Cacheo automático de datos
+- Manejo de estados de carga y error
+- Sincronización entre vistas
+
+Esto mejora el rendimiento y la experiencia del usuario.
+
+---
+
+## 🔐 Middleware
+
+El archivo `middleware.ts` se utiliza para:
+
+- Protección de rutas
+- Control de acceso por roles
+- Redirecciones automáticas
+
+---
+
+## 🚀 Ejecución del Proyecto
+
+```bash
+npm install pnpm
+pnpm install
+pnpm dev
+```
+
+---
+
+## 📈 Beneficios de la Arquitectura
+
+- Escalabilidad por módulos
+- Código limpio y mantenible
+- Separación clara de responsabilidades
+- Preparado para crecimiento y producción
+
+---
+
+## 📌 Conclusión
+
+El frontend del **E-commerce de Arquitectura Betancourt** está diseñado con una arquitectura moderna, profesional y escalable, enfocada en ofrecer una experiencia de usuario sólida y preparada para proyectos reales de comercio electrónico.
